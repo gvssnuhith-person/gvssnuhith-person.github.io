@@ -232,3 +232,13 @@ function initSmoothScroll() {
     });
   });
 }
+
+// Copy code button
+function copyCode() {
+  const code = document.getElementById("atomCode").innerText;
+  navigator.clipboard.writeText(code).then(() => {
+    const btn = document.querySelector(".code-copy-btn");
+    btn.textContent = "Copied!";
+    setTimeout(() => btn.textContent = "Copy", 2000);
+  });
+}

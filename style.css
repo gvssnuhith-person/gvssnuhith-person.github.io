@@ -850,6 +850,139 @@ ul { list-style:none; }
 /* ========================================
    RESPONSIVE
    ======================================== */
+.project-links {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+  flex-wrap: wrap;
+}
+
+/* Code Viewer */
+.code-viewer {
+  display: none;
+  margin-top: 20px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  background: #060610;
+}
+.code-viewer.open { display: block; }
+.code-viewer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 16px;
+  background: rgba(255,255,255,0.04);
+  border-bottom: 1px solid var(--border);
+}
+.code-file-name {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-family: 'Space Mono', monospace;
+}
+.code-copy-btn {
+  background: rgba(0,245,255,0.1);
+  border: 1px solid #00f5ff44;
+  color: #00f5ff;
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.code-copy-btn:hover { background: rgba(0,245,255,0.2); }
+.code-block {
+  margin: 0;
+  padding: 20px;
+  overflow-x: auto;
+  max-height: 400px;
+  overflow-y: auto;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.78rem;
+  line-height: 1.7;
+  color: #a8d8a8;
+  white-space: pre;
+}
+
+/* ========================================
+   ROBOT SVG STYLES
+   ======================================== */
+.robot-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+.robot-svg {
+  width: 160px;
+  height: auto;
+  filter: drop-shadow(0 0 18px #00f5ff88);
+  animation: robot-float 3s ease-in-out infinite;
+}
+@keyframes robot-float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+.robot-antenna-pulse {
+  animation: antenna-blink 1.2s ease-in-out infinite;
+}
+@keyframes antenna-blink {
+  0%, 100% { opacity: 1; r: 6; }
+  50% { opacity: 0.3; r: 9; }
+}
+.robot-eye-left, .robot-eye-right {
+  animation: eye-glow 2s ease-in-out infinite;
+}
+@keyframes eye-glow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+.robot-pupil-left, .robot-pupil-right {
+  animation: pupil-move 4s ease-in-out infinite;
+}
+@keyframes pupil-move {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(3px); }
+  75% { transform: translateX(-3px); }
+}
+.robot-mouth-1, .robot-mouth-2, .robot-mouth-3, .robot-mouth-4 {
+  animation: mouth-talk 0.5s ease-in-out infinite alternate;
+}
+.robot-mouth-1 { animation-delay: 0s; }
+.robot-mouth-2 { animation-delay: 0.1s; }
+.robot-mouth-3 { animation-delay: 0.2s; }
+.robot-mouth-4 { animation-delay: 0.1s; }
+@keyframes mouth-talk {
+  0% { opacity: 1; }
+  100% { opacity: 0.2; }
+}
+.robot-chest-1 {
+  animation: chest-pulse 1s ease-in-out infinite;
+}
+.robot-chest-2 {
+  animation: chest-pulse 1s ease-in-out infinite 0.33s;
+}
+.robot-chest-3 {
+  animation: chest-pulse 1s ease-in-out infinite 0.66s;
+}
+@keyframes chest-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.2; }
+}
+.robot-chest-glow {
+  animation: chest-glow 1s ease-in-out infinite;
+}
+@keyframes chest-glow {
+  0%, 100% { r: 8; opacity: 0.3; }
+  50% { r: 14; opacity: 0.1; }
+}
+.robot-bar {
+  animation: bar-fill 2s ease-in-out infinite;
+}
+@keyframes bar-fill {
+  0%, 100% { width: 32px; }
+  50% { width: 56px; }
+}
+
 @media (max-width:1024px) {
   .skills-showcase { grid-template-columns: repeat(2, 1fr); }
   .cert-masonry { grid-template-columns: repeat(2, 1fr); }
